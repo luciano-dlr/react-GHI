@@ -1,4 +1,8 @@
-import { ProductCard } from "../components/ProductCard";
+import ProductCard, {
+  ProductButtons,
+  ProductImg,
+  ProductTitle,
+} from "../components/index";
 
 const ProductList = [
   {
@@ -16,6 +20,12 @@ const ProductList = [
   },
 ];
 
+const SingleProduct = {
+  id: "2",
+  title: "Coffe Cup",
+  img: "./coffee-mug.png",
+};
+
 export const ShoppingPage = () => {
   return (
     <div>
@@ -28,9 +38,23 @@ export const ShoppingPage = () => {
           flexWrap: "wrap",
         }}
       >
-        {ProductList.map((product) => (
-          <ProductCard product={product} key={product.id} />
-        ))}
+        {/* {ProductList.map((product) => (
+          <ProductCard product={product} key={product.id}>
+            <ProductImg img={product.img} />
+            <ProdctTitle title={product.title} />
+          </ProductCard>
+        ))} */}
+
+        <ProductCard product={SingleProduct}>
+          <ProductCard.Img />
+          <ProductTitle />
+          <ProductButtons />
+        </ProductCard>
+        <ProductCard product={SingleProduct}>
+          <ProductImg />
+          <ProductTitle title="pepe" />
+          <ProductButtons />
+        </ProductCard>
       </div>
     </div>
   );
