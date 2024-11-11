@@ -4,6 +4,8 @@ import ProductCard, {
   ProductTitle,
 } from "../components/index";
 
+import "../styles/custom-styles.css";
+
 const ProductList = [
   {
     id: "1",
@@ -50,7 +52,7 @@ export const ShoppingPage = () => {
           <ProductTitle />
           <ProductButtons />
         </ProductCard>
-        <ProductCard product={SingleProduct}>
+        <ProductCard product={SingleProduct} className="bg-dark">
           <ProductImg />
           <ProductTitle title="pepe" />
           <ProductButtons />
