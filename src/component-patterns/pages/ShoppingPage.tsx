@@ -47,12 +47,17 @@ export const ShoppingPage = () => {
           </ProductCard>
         ))} */}
 
-        <ProductCard product={SingleProduct}>
-          <ProductCard.Img />
-          <ProductTitle />
-          <ProductButtons />
+        <ProductCard product={SingleProduct} className="bg-dark text-white">
+          <ProductCard.Img className="custom-image" />
+          <ProductCard.Title className="text-bold" />
+          <ProductCard.Buttons className="custom-butttons" />
         </ProductCard>
-        <ProductCard product={SingleProduct} className="bg-dark">
+        <ProductCard product={SingleProduct} className="bg-dark text-white">
+          <ProductImg className="custom-image" />
+          <ProductTitle title="pepe" className="text-bold" />
+          <ProductButtons className="custom-butttons" />
+        </ProductCard>
+        <ProductCard product={SingleProduct} style={{ backgroundColor: "red" }}>
           <ProductImg />
           <ProductTitle title="pepe" />
           <ProductButtons />
