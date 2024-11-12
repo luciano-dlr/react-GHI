@@ -13,19 +13,21 @@ export interface ProductCardProps {
   className?: string;
   style?: CSSProperties;
   onChange?: (arg: onChangeArguments) => void;
+  value?: number
 }
 
 export const ProductContext = createContext({} as ProductContextProps);
 const { Provider } = ProductContext;
 
-export const ProductCard = ({ children, product, className, style, onChange }: ProductCardProps) => {
-  const { counter, handleIncreaseBy } = useProduct({ onChange, product });
+export const ProductCard = ({ children, product, className, style, onChange, value }: ProductCardProps) => {
+  const { counter, handleIncreaseBy } = useProduct({ onChange, product, value });
   return (
     <Provider
       value={{
         counter,
         handleIncreaseBy,
         product,
+
       }}
     >
       <div className={`${styles.productCard} ${className}`} style={style}>

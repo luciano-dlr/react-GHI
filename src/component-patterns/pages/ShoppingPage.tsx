@@ -32,12 +32,12 @@ export const ShoppingPage = () => {
   const handleOnProcutCountChange = ({ count, product }: { count: number, product: Product }) => {
 
     setShoppingCart(oldShoppingCart => {
+      console.log(count);
+
 
       if (count === 0) {
         // [product.id]: toDelete o [product.id]: _ funcionan de igual manera para eliminar un producto
         const { [product.id]: toDelete, ...newShoppingCart } = oldShoppingCart
-        // console.log(toDelete);
-
         return newShoppingCart;
       }
 
@@ -69,7 +69,9 @@ export const ShoppingPage = () => {
             product={product}
             className="bg-dark text-white"
             onChange={(evento) => handleOnProcutCountChange(evento)}
+            value={shoppingCart[product.id]?.count || 0}
           >
+
             <ProductImg className="custom-image" />
             <ProductTitle title="pepe" className="text-bold" />
             <ProductButtons className="custom-butttons" />
@@ -107,7 +109,8 @@ export const ShoppingPage = () => {
               style={{
                 width: "100px",
               }}
-              onChange={(evento) => handleOnProcutCountChange(evento)}
+              onChange={(event) => handleOnProcutCountChange(event)}
+              value={product.count}
             >
               <ProductImg className="custom-image" />
               <ProductButtons className="custom-butttons"
