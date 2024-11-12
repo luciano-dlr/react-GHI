@@ -8,11 +8,7 @@ export interface ProductTitleProps {
   style?: CSSProperties;
 }
 
-export const ProductTitle = ({
-  title,
-  className,
-  style,
-}: ProductTitleProps) => {
+export const ProductTitle = ({ title, className, style, }: ProductTitleProps) => {
   const { product } = useContext(ProductContext);
 
   return (

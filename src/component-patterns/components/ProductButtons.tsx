@@ -7,11 +7,9 @@ export interface ProductCardButtonsProps {
   style?: CSSProperties;
 }
 
-export const ProductButtons = ({
-  className = "",
-  style,
-}: ProductCardButtonsProps) => {
+export const ProductButtons = ({ className = "", style, }: ProductCardButtonsProps) => {
   const { counter, handleIncreaseBy } = useContext(ProductContext);
+
   return (
     <div className={`${styles.buttonsContainer} ${className}`} style={style}>
       <button
