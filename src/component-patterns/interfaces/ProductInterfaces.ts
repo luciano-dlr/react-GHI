@@ -13,6 +13,8 @@ export interface ProductContextProps {
   counter: number;
   handleIncreaseBy: (value: number) => void;
   product: Product;
+  onChange?: () => void;
+
 }
 
 export interface ProductCardHOCProps {
@@ -20,4 +22,13 @@ export interface ProductCardHOCProps {
   Title: ({ title, className, style }: ProductTitleProps) => JSX.Element;
   Img: ({ className, style }: ProductCardImgProps) => JSX.Element;
   Buttons: ({ className, style }: ProductCardButtonsProps) => JSX.Element;
+}
+
+export interface onChangeArguments {
+  product: Product;
+  count: number;
+}
+
+export interface ProductInCart extends Product {
+  count: number;
 }
