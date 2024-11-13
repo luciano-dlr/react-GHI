@@ -1,22 +1,17 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { onChangeArguments, Product } from "../interfaces/ProductInterfaces";
 
 interface UseProductHookProps {
   product: Product;
   onChange?: (arg: onChangeArguments) => void;
-  value?:number
+  value?: number
 }
 
 export const useProduct = ({ onChange, product, value = 0 }: UseProductHookProps) => {
   const [counter, setCounter] = useState(value);
 
-  const isControlled = useRef(!!onChange)
-
   const handleIncreaseBy = (value: number) => {
-   if(isControlled.current ){
-    return onChange! ({count:value,product})
-   }
-    
+
     const newValue = Math.max(counter + value, 0);
     setCounter(newValue);
 
@@ -27,7 +22,7 @@ export const useProduct = ({ onChange, product, value = 0 }: UseProductHookProps
     setCounter(value)
 
   }, [value])
-  
+
   return {
     handleIncreaseBy,
     counter,
