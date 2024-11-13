@@ -14,7 +14,7 @@ export interface ProductContextProps {
   handleIncreaseBy: (value: number) => void;
   product: Product;
   onChange?: () => void;
-  
+
 }
 
 export interface ProductCardHOCProps {
@@ -26,5 +26,9 @@ export interface ProductCardHOCProps {
 
 export interface onChangeArguments {
   product: Product;
+  count: number;
+}
+
+export interface ProductInCart extends Product {
   count: number;
 }

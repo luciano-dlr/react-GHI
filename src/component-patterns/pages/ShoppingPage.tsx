@@ -1,56 +1,11 @@
-import { useState } from "react";
-import ProductCard, {
-  ProductButtons,
-  ProductImg,
-  ProductTitle,
-} from "../components/index";
-import { Product } from "../interfaces/ProductInterfaces";
-
+import { useShoppingCart } from "../hooks/useShoppingCart";
+import ProductCard, { ProductButtons, ProductImg, ProductTitle } from "../components/index";
 import "../styles/custom-styles.css";
-
-const SingleProduct = {
-  id: "1",
-  title: "Coffe Cup",
-  img: "./coffee-mug.png",
-};
-const SingleProduct2 = {
-  id: "2",
-  title: "Coffe Cup Meme",
-  img: "./coffee-mug2.png",
-};
-const ProductList: Product[] = [SingleProduct, SingleProduct2];
-
-interface ProductInCart extends Product {
-  count: number;
-}
+import { ProductList } from "../data/products";
 
 export const ShoppingPage = () => {
-  const [shoppingCart, setShoppingCart] = useState<{
-    [key: string]: ProductInCart;
-  }>({});
 
-  const handleOnProcutCountChange = ({ count, product }: { count: number, product: Product }) => {
-
-    setShoppingCart(oldShoppingCart => {
-      console.log(count);
-
-
-      if (count === 0) {
-        // [product.id]: toDelete o [product.id]: _ funcionan de igual manera para eliminar un producto
-        const { [product.id]: toDelete, ...newShoppingCart } = oldShoppingCart
-        return newShoppingCart;
-      }
-
-      return {
-        ...oldShoppingCart,
-        [product.id]: { ...product, count }
-      }
-    })
-
-  };
-
-  // Alternativa
-  // const cartList = Object.values(shoppingCart);
+  const { handleOnProcutCountChange, shoppingCart } = useShoppingCart()
 
   return (
     <div>
@@ -71,7 +26,6 @@ export const ShoppingPage = () => {
             onChange={(evento) => handleOnProcutCountChange(evento)}
             value={shoppingCart[product.id]?.count || 0}
           >
-
             <ProductImg className="custom-image" />
             <ProductTitle title="pepe" className="text-bold" />
             <ProductButtons className="custom-butttons" />
@@ -79,27 +33,6 @@ export const ShoppingPage = () => {
         ))}
       </div>
       <div className="shopping-cart">
-
-        {/* alternativa
-        {cartList.length > 0 &&
-          cartList.map(product => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              className="bg-dark text-white"
-              style={{
-                width: "100px",
-              }}
-              onChange={(evento) => handleOnProcutCountChange(evento)}
-            >
-              <ProductImg className="custom-image" />
-              <ProductButtons className="custom-butttons"
-                style={{ display: 'flex', justifyContent: 'center' }} />
-            </ProductCard>
-
-          ))
-        } */}
-
         {
           Object.entries(shoppingCart).map(([key, product]) => (
             <ProductCard
