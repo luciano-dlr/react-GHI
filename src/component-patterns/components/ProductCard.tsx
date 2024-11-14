@@ -1,6 +1,6 @@
 import styles from "../styles/styles.module.css";
 import { useProduct } from "../hooks/useProduct";
-import { CSSProperties, ReactElement } from "react";
+import { CSSProperties } from "react";
 import {
   InitialValues,
   onChangeArguments,
