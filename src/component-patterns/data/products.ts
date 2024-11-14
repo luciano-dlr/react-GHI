@@ -9,5 +9,6 @@ export const SingleProduct2 = {
     id: "2",
     title: "Coffe Cup Meme",
     img: "./coffee-mug2.png",
+
 };
 export const ProductList: Product[] = [SingleProduct, SingleProduct2];
