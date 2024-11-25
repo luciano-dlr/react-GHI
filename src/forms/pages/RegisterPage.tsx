@@ -1,4 +1,6 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, FormEvent, useState } from "react"
+
+
 import "../styles/styles.css"
 
 export const RegisterPage = () => {
@@ -25,10 +27,17 @@ export const RegisterPage = () => {
 
     }
 
+
+    const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        console.log(registerData);
+
+    }
+
     return (
         <div>
             <h1>Register Page</h1>
-            <form >
+            <form noValidate onSubmit={(event) => onSubmit(event)}>
                 <input
                     type="text"
                     placeholder="Name"
@@ -45,7 +54,7 @@ export const RegisterPage = () => {
 
                 />
                 <input
-                    type="password1"
+                    type="password"
                     placeholder="Paswword"
                     name="password1"
                     value={password1}
@@ -53,7 +62,7 @@ export const RegisterPage = () => {
 
                 />
                 <input
-                    type="password2"
+                    type="password"
                     placeholder="Confrim Password"
                     name="password2"
                     value={password2}
