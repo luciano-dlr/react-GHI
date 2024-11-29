@@ -67,6 +67,7 @@ export const RegisterPage = () => {
 
                 />
                 {password2.trim().length <= 0 && <span>Este Campo es Obligatorio</span>}
+                {password2.trim().length <= 0 && <span>Este Campo es Obligatorio</span>}
                 {password2 !== password1 && <span>Las contraseñas deben ser iguales</span>}
 
                 <button type="submit">Submit</button>
