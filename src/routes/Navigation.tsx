@@ -3,7 +3,7 @@ import { Route, Routes, Navigate, NavLink } from "react-router-dom";
 import ReactLogo from "../assets/react.svg";
 import { RegisterPage } from "../forms/pages/RegisterPage";
 
-import { ShoppingPage } from "../component-patterns/pages/ShoppingPage";
+// import { ShoppingPage } from "../component-patterns/pages/ShoppingPage";
 
 export const Navigation = () => {
   return (
