@@ -17,7 +17,7 @@ export const RegisterPage = () => {
 
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-
+        console.log(formData);
 
     }
 
