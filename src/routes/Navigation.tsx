@@ -2,8 +2,9 @@ import { BrowserRouter } from "react-router-dom";
 import { Route, Routes, Navigate, NavLink } from "react-router-dom";
 import ReactLogo from "../assets/react.svg";
 import { RegisterPage } from "../forms/pages/RegisterPage";
+import { FormikBasePage } from "../forms/pages/FormikBasicPage";
 
-import { ShoppingPage } from "../component-patterns/pages/ShoppingPage";
+// import { ShoppingPage } from "../component-patterns/pages/ShoppingPage";
 
 export const Navigation = () => {
   return (
@@ -22,10 +23,10 @@ export const Navigation = () => {
             </li>
             <li>
               <NavLink
-                to="/about"
+                to="/formik-base"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                About
+                Formik Base
               </NavLink>
             </li>
             <li>
@@ -41,9 +42,9 @@ export const Navigation = () => {
         <Routes>
 
           <Route path="register" element={<RegisterPage />} />
-          <Route path="about" element={<h2>About</h2>} />
+          <Route path="formik-base" element={<FormikBasePage />} />
           <Route path="users" element={<h2>Soy users </h2>} />
-          <Route path="/*" element={<Navigate to="/home" replace />} />
+          <Route path="/*" element={<Navigate to="/register" replace />} />
         </Routes>
       </div>
     </BrowserRouter>
