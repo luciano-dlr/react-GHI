@@ -7,18 +7,15 @@ import { useForm } from "../hooks/useForm"
 export const RegisterPage = () => {
 
     const { handleValidateEmail, formData, handleOnChange, name, email, password1, password2, handleReset } = useForm({
-        name: 'Luciano',
-        email: 'rubia@gmail.com',
+        name: '',
+        email: '',
         password1: '',
         password2: ''
     })
 
-
-
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         console.log(formData);
-
     }
 
     return (
