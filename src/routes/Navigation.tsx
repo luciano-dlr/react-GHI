@@ -3,6 +3,7 @@ import { Route, Routes, Navigate, NavLink } from "react-router-dom";
 import ReactLogo from "../assets/react.svg";
 import { RegisterPage } from "../forms/pages/RegisterPage";
 import { FormikBasePage } from "../forms/pages/FormikBasicPage";
+import { FormikYupPage } from "../forms/pages/FormikYupPage";
 
 // import { ShoppingPage } from "../component-patterns/pages/ShoppingPage";
 
@@ -31,6 +32,14 @@ export const Navigation = () => {
             </li>
             <li>
               <NavLink
+                to="/formik-yup"
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                Formik Yup
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/users"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
@@ -43,6 +52,7 @@ export const Navigation = () => {
 
           <Route path="register" element={<RegisterPage />} />
           <Route path="formik-base" element={<FormikBasePage />} />
+          <Route path="formik-yup" element={<FormikYupPage />} />
           <Route path="users" element={<h2>Soy users </h2>} />
           <Route path="/*" element={<Navigate to="/register" replace />} />
         </Routes>
